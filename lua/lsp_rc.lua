@@ -23,33 +23,6 @@ local on_attach = function(client, bufnr)
   --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
 
-protocol.CompletionItemKind = {
-  '', -- Text
-  '', -- Method
-  '', -- Function
-  '', -- Constructor
-  '', -- Field
-  '', -- Variable
-  '', -- Class
-  'ī', -- Interface
-  '', -- Module
-  '', -- Property
-  '', -- Unit
-  '', -- Value
-  '', -- Enum
-  '', -- Keyword
-  '﬌', -- Snippet
-  '', -- Color
-  '', -- File
-  '', -- Reference
-  '', -- Folder
-  '', -- EnumMember
-  '', -- Constant
-  '', -- Struct
-  '', -- Event
-  'ﬦ', -- Operator
-  '', -- TypeParameter
-}
 
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require('cmp_nvim_lsp').update_capabilities(
@@ -59,11 +32,12 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
 local function organize_imports()
   local params = {
     command = "_typescript.organizeImports",
-    arguments = {vim.api.nvim_buf_get_name(0)},
+    arguments = { vim.api.nvim_buf_get_name(0) },
     title = ""
   }
   vim.lsp.buf.execute_command(params)
 end
+
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
@@ -75,22 +49,49 @@ nvim_lsp.tsserver.setup {
       description = "Organize Imports"
     }
   }
-  -- settings = {
-  --   typescript = {
-  --       inlayHints = {
-  --       includeInlayEnumMemberValueHints = true,
-  --       includeInlayFunctionLikeReturnTypeHints = true,
-  --       includeInlayFunctionParameterTypeHints = true,
-  --       includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-  --       includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-  --       includeInlayPropertyDeclarationTypeHints = true,
-  --       includeInlayVariableTypeHints = true,
-  --       }
-  --     }
-  -- }
 }
-
-
+-- nvim_lsp
+nvim_lsp.marksman.setup {
+  capabilities = capabilities,
+}
+nvim_lsp.pylsp.setup {
+  capabilities = capabilities,
+}
+nvim_lsp.sumneko_lua.setup {
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { 'vim' },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}
+nvim_lsp.rust_analyzer.setup{}
+nvim_lsp.ccls.setup {
+  capabilities = capabilities,
+  init_options = {
+    compilationDatabaseDirectory = "build";
+    index = {
+      threads = 0;
+    };
+    clang = {
+    };
+  }
+}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -98,8 +99,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   update_in_insert = false,
   virtual_text = { spacing = 4, prefix = "●" },
   severity_sort = true,
-}
-)
+})
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -117,4 +117,3 @@ vim.diagnostic.config({
     source = "always", -- Or "if_many"
   },
 })
-

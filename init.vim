@@ -26,7 +26,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'Shatur/neovim-session-manager'
 Plug 'numToStr/FTerm.nvim'
 
-Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -52,6 +51,12 @@ Plug 'windwp/nvim-autopairs'
 
 Plug 'kylechui/nvim-surround'
 Plug 'MunifTanjim/prettier.nvim'
+
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'williamboman/mason.nvim'
+Plug 'mfussenegger/nvim-dap'
+Plug 'ThePrimeagen/refactoring.nvim'
 call plug#end()
 
 
@@ -87,12 +92,12 @@ set clipboard+=unnamedplus
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
 
-
 " fzf telescope
 nnoremap <leader>ff <cmd>Telescope find_files theme=dropdown<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep theme=dropdown<cr>
 nnoremap <leader>fb <cmd>Telescope buffers theme=dropdown<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags theme=dropdown<cr>
+nnoremap <leader>fr <cmd>Telescope oldfiles theme=dropdown<cr>
 
 " tree.nvim
 :nmap <leader>e <Cmd>NvimTreeToggle<CR>
@@ -134,6 +139,9 @@ nnoremap <A-right> :vertical resize +5<cr>
 " With this maps you can now toggle the terminal
 nnoremap <A-`> <CMD>ToggleTerm<CR> 
 tnoremap <A-`> <C-\><C-n><CMD>ToggleTerm<CR>
+" Format
+nnoremap <=-=> <CMD>Prettier<CR> " Prettier
+nnoremap <A-I> <CMD> lua vim.lsp.buf.format()<CR> " LSP
 
 lua require("lsp_rc")
 lua require("lspsaga_rc")
@@ -142,3 +150,5 @@ lua require("null_ls_rc")
 lua require("prettier_rc")
 lua require("groups_rc")
 lua require("bufferline_rc")
+lua require("mason_rc")
+lua require("refactoring_rc")
