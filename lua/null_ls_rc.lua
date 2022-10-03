@@ -1,13 +1,11 @@
-local status, null_ls = pcall(require, "null-ls")
-if (not status) then return end
-
+local null_ls = require("null-ls")
 local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
-local sources={
-    null_ls.builtins.diagnostics.eslint_d.with({
-      diagnostics_format = '[eslint] #{m}\n(#{c})'
-    }),
-    null_ls.builtins.formatting.prettierd,
-    null_ls.builtins.code_actions.refactoring,
+local sources = {
+  null_ls.builtins.diagnostics.eslint_d.with({
+    diagnostics_format = '[eslint] #{m}\n(#{c})'
+  }),
+  null_ls.builtins.formatting.prettierd,
+  null_ls.builtins.code_actions.refactoring,
 }
 null_ls.setup({
   sources = sources,

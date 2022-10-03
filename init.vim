@@ -1,6 +1,5 @@
 call plug#begin()
 
-Plug 'nvim-telescope/telescope-ui-select.nvim'
 Plug 'Mofiqul/vscode.nvim'
 Plug 'junegunn/fzf'
 " https://github.com/kyazdani42/nvim-web-devicons 
@@ -27,6 +26,7 @@ Plug 'Shatur/neovim-session-manager'
 Plug 'numToStr/FTerm.nvim'
 
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope-ui-select.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'mfussenegger/nvim-dap'
@@ -57,6 +57,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'williamboman/mason.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'ThePrimeagen/refactoring.nvim'
+Plug 'simrat39/symbols-outline.nvim'
 call plug#end()
 
 
@@ -92,12 +93,6 @@ set clipboard+=unnamedplus
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
 
-" fzf telescope
-nnoremap <leader>ff <cmd>Telescope find_files theme=dropdown<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep theme=dropdown<cr>
-nnoremap <leader>fb <cmd>Telescope buffers theme=dropdown<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags theme=dropdown<cr>
-nnoremap <leader>fr <cmd>Telescope oldfiles theme=dropdown<cr>
 
 " tree.nvim
 :nmap <leader>e <Cmd>NvimTreeToggle<CR>
@@ -152,3 +147,7 @@ lua require("groups_rc")
 lua require("bufferline_rc")
 lua require("mason_rc")
 lua require("refactoring_rc")
+lua require("symbol_outline_rc")
+
+lua require("telescope_rc")
+lua require("keys-telescope")
