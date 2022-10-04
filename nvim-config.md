@@ -36,6 +36,8 @@
 
 1. 打开选择 Session `<leader> s s`
 2. 打开上次 Session `<leader> s l`
+3. 打开删除 Session `<leader> s d`
+4. 打开当前 Session `<leader> s c`
 
 ### 终端相关
 

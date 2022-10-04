@@ -6,3 +6,5 @@ require('session_manager').setup({
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<leader>sl', '<Cmd>SessionManager load_last_session<CR>', opts)
 vim.keymap.set('n', '<leader>ss', '<Cmd>SessionManager load_session<CR>', opts)
+vim.keymap.set('n', '<leader>ss', '<Cmd>SessionManager load_session<CR>', opts)
+vim.keymap.set('n', '<leader>sc', '<Cmd>SessionManager load_current_dir_session<CR>', opts)
