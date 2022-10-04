@@ -11,7 +11,7 @@ local sources = {
 null_ls.setup({
   sources = sources,
   on_attach = function(client, _bufnr)
-    -- diable built-in lsp format
+    -- disable built-in lsp format
     if client.server_capabilities.documentFormattingProvider then
       vim.api.nvim_clear_autocmds { buffer = 0, group = augroup_format }
       vim.api.nvim_create_autocmd("BufWritePre", {

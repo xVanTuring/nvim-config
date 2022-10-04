@@ -19,7 +19,4 @@ vim.keymap.set('n', 'gr', '<Cmd>Lspsaga rename<CR>', opts)
 -- vim.keymap.set('n', '<leader>ca', '<Cmd>Lspsaga code_action<CR>', opts)
 vim.keymap.set('n', '<leader>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
--- TODO: will be remove /unavaliable in 0.9.0 for range_code_action
--- vim.keymap.set('v', '<leader>ca', "<Cmd>'<,'>lua vim.lsp.buf.code_action()<CR>", opts)
--- similary to vscode's mini map But feel slow
--- vim.keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
+vim.keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
