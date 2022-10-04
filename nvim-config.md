@@ -6,13 +6,6 @@
 
 ### Plug 插件 随 `init.vim`
 
-### Coc 插件
-
-1. coc-eslint
-2. coc-pairs
-3. coc-tsserver
-4. coc-terminal
-
 ## 快捷键
 
 > 当前配置的 leader 是 ` `
@@ -38,6 +31,11 @@
 9. 整理导入 `OR`
 10. LSP 格式化代码 `Alt I`
 11. Prettier 格式化 `==`
+
+### Session 相关
+
+1. 打开选择 Session `<leader> s s`
+2. 打开上次 Session `<leader> s l`
 
 ### 终端相关
 

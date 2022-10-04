@@ -58,6 +58,7 @@ Plug 'williamboman/mason.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'ThePrimeagen/refactoring.nvim'
 Plug 'simrat39/symbols-outline.nvim'
+" Plug 'willthbill/opener.nvim'
 call plug#end()
 
 
@@ -148,6 +149,9 @@ lua require("bufferline_rc")
 lua require("mason_rc")
 lua require("refactoring_rc")
 lua require("symbol_outline_rc")
+lua require("nvim-tree-rc")
+lua require("session-manager-rc")
+lua require("alpha-rc")
 
 lua require("telescope_rc")
 lua require("keys-telescope")
