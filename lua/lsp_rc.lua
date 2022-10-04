@@ -80,7 +80,7 @@ nvim_lsp.sumneko_lua.setup {
     },
   },
 }
-nvim_lsp.rust_analyzer.setup{}
+nvim_lsp.rust_analyzer.setup {}
 nvim_lsp.ccls.setup {
   capabilities = capabilities,
   init_options = {

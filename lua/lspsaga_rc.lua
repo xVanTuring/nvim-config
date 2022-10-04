@@ -1,6 +1,4 @@
-local status, saga = pcall(require, "lspsaga")
-if (not status) then return end
-
+local saga = require('lspsaga')
 saga.init_lsp_saga {
   server_filetype_map = {
     typescript = 'typescript'

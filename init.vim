@@ -10,7 +10,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 " bottom line 
 Plug 'nvim-lualine/lualine.nvim'
 
-Plug 'editorconfig/editorconfig-vim'
+Plug 'gpanders/editorconfig.nvim'
 
 " vertical line
 Plug 'lukas-reineke/indent-blankline.nvim'

@@ -6,6 +6,7 @@ local sources = {
   }),
   null_ls.builtins.formatting.prettierd,
   null_ls.builtins.code_actions.refactoring,
+  null_ls.builtins.diagnostics.codespell,
 }
 null_ls.setup({
   sources = sources,
