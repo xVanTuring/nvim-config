@@ -96,17 +96,19 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 
 " tree.nvim
-:nmap <leader>e <Cmd>NvimTreeToggle<CR>
+nmap <leader>e <Cmd>NvimTreeToggle<CR>
 
 
 " Terminal
-:tnoremap <Esc> <C-\><C-n> " Esc To Exit
-:nnoremap <A-i> <CMD>lua require("FTerm").toggle()<CR>
-:tnoremap <A-i> <C-\><C-n><CMD>lua require("FTerm").toggle()<CR>
+tnoremap <Esc> <C-\><C-n> " Esc To Exit
+nnoremap <A-i> <CMD>lua require("FTerm").toggle()<CR>
+tnoremap <A-i> <C-\><C-n><CMD>lua require("FTerm").toggle()<CR>
+nnoremap <A-t> <CMD>ToggleTerm<CR> 
+tnoremap <A-t> <C-\><C-n><CMD>ToggleTerm<CR>
 
 " Split & Nav
-nmap <A-\>    <CMD>vsplit<CR><C-w>l
-nmap <A-Bar>  <CMD>split<CR><C-w>j
+nmap <leader>\    <CMD>vsplit<CR><C-w>l
+nmap <leader><Bar>  <CMD>split<CR><C-w>j
 
 
 " Re-order to previous/next
@@ -121,20 +123,20 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
-nnoremap <A-q> <Cmd>q<CR>
-nnoremap <A-Tab> <C-w>w
+" nnoremap <A-q> <Cmd>q<CR>
+nnoremap <leader>q <Cmd>q<CR>
+" nnoremap <A-Tab> <C-w>w
+nnoremap <leader><Tab> <C-w>w
 " For terminal
 tnoremap <A-Tab> <C-\><C-n><C-w>w
 
 " resize current buffer by +/- 5 
+" Todo 优化键位 
 nnoremap <A-left> :vertical resize -5<cr>
 nnoremap <A-down> :resize +5<cr>
 nnoremap <A-up> :resize -5<cr>
 nnoremap <A-right> :vertical resize +5<cr>
 
-" With this maps you can now toggle the terminal
-nnoremap <A-`> <CMD>ToggleTerm<CR> 
-tnoremap <A-`> <C-\><C-n><CMD>ToggleTerm<CR>
 " Format
 nnoremap <=-=> <CMD>Prettier<CR> " Prettier
 nnoremap <A-I> <CMD> lua vim.lsp.buf.format()<CR> " LSP

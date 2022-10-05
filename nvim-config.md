@@ -41,15 +41,15 @@
 
 ### 终端相关
 
-1. 底部终端 `Alt ``
+1. 底部终端 `Alt t`
 2. 悬浮终端 `Alt i`
 
 ### 窗口导航
 
 1. 打开文件管理器 `leader e`
 2. tab 切换 `H L` `J K` `Tab`
-3. 窗口切换 `Alt h j k l` `Alt Tab`
-4. 关闭窗口 `Alt q`
+3. 窗口切换 `Alt h j k l` `leader Tab`
+4. 关闭窗口 `leader q`
 5. 关闭 tab `leader w`
 6. 搜索文件 `leader ff` `leader fb`
 7. 调整窗口大小 <Alt arrow-keys>
